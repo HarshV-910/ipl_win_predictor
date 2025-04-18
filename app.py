@@ -27,16 +27,16 @@ with col2:
 
 selected_city = st.selectbox('Select host city',sorted(cities))
 
-target = st.number_input('Target')
+target = st.number_input('Target',min_value=0,max_value=1000,step=1)
 
 col3,col4,col5 = st.columns(3)
 
 with col3:
-    score = st.number_input('Score')
+    score = st.number_input('Score',min_value=0,max_value=target+10,step=1)
 with col4:
-    overs = st.number_input('Overs completed')
+    overs = st.number_input('Overs completed',min_value=1,max_value=20,step=1)
 with col5:
-    wickets = st.number_input('Wickets out')
+    wickets = st.number_input('Wickets out',min_value=0,max_value=10,step=1)
 
 if st.button('Predict Probability'):
     runs_left = target - score
